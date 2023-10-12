@@ -4,7 +4,7 @@ import { ODatabaseSession, OrientDBClient } from 'orientjs';
 
 declare module 'fastify' {
   interface FastifyInstance {
-    orient:  ODatabaseSession
+    orient: ODatabaseSession
   }
 }
 
@@ -15,7 +15,7 @@ const fastifyOrient: FastifyPluginAsync = async (fastify, options) => {
     port: 2424
   })
 
-  const session = await client.session({ name: "heartbeat", username: "root", password: "root" })
+  const session = await client.session({ name: "story-game", username: "root", password: "root" })
 
   fastify.decorate('orient', session);
   fastify.addHook('onClose', () => {
