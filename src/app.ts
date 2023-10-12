@@ -1,7 +1,7 @@
 import fastify, { FastifyServerOptions } from "fastify";
 import 'dotenv/config'
 
-import { boxRouter, repoRouter } from './routes';
+import { heroRouter } from './routes';
 import cors from '@fastify/cors'
 import fastifyOrient from './orientdb-plugin';
 
@@ -13,8 +13,7 @@ const App = (options: FastifyServerOptions) => {
 
   app.get("/ping", async () => "SERVER");
 
-  app.register(repoRouter, { prefix: "/api/v1/repo" })
-  app.register(boxRouter, { prefix: "/api/v1/box" })
+  app.register(heroRouter, { prefix: "/api/v1/hero" })
 
   return app
 }

@@ -11,10 +11,10 @@ type Repo = {
   uri: string,
 }
 
-export const repoRouter = async (app: FastifyInstance) => {
+export const heroRouter = async (app: FastifyInstance) => {
 
 
   app.get("/", async function () {
-    return this.orient.query<Repo>("select * from Repo").all()
+    return this.orient.query<Repo>("select * from Hero").all()
   })
 }
