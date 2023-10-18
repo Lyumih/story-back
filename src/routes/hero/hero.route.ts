@@ -14,7 +14,7 @@ type Repo = {
 export const heroRouter = async (app: FastifyInstance) => {
 
   app.get("/", async function () {
-    return this.orient.query("select *, out_HeroSkill:{*, in, in: {*} as skill} as skills from hero").all()
+    return this.orient.query("select *, out_HeroSkill:{*, in, in: {*} as skill} as skills, out_HeroWeapon:{*, in, in: {*} as weapon} as weapons from hero").all()
   })
 
   app.get("/skill", async function () {
